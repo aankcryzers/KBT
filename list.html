@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Permintaan Logistik KBT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Form Permintaan Logistik KBT</h1>
+  <div id="loginSectionForm">
+    <input type="text" id="loginUserForm" placeholder="Masukkan Nama Pemohon">
+    <button onclick="loginForm()">Login</button>
+    <div id="loginMsgForm"></div>
+  </div>
+  <div id="formSection" style="display:none;">
+    <form id="mrForm">
+      <label>No MR: <input type="text" name="mr_no" id="mr_no" readonly></label>
+      <label>Nama Pemohon: <input type="text" name="pemohon" id="pemohon" readonly></label>
+      <label>Department: <input type="text" name="department" required></label>
+      <label>Tanggal Pengajuan: <input type="text" name="tanggal" id="tanggal" readonly></label>
+      <label>Nama Barang: <input type="text" name="barang" required></label>
+      <label>Part No: <input type="text" name="part_no"></label>
+      <label>Satuan:
+        <select name="satuan" required>
+          <option value="">--Pilih--</option>
+          <option value="pcs">pcs</option>
+          <option value="box">box</option>
+          <option value="liter">liter</option>
+          <option value="unit">unit</option>
+          <option value="meter">meter</option>
+        </select>
+      </label>
+      <label>Qty: <input type="number" name="qty" min="1" required></label>
+      <label>Estimasi Harga: <input type="number" name="harga" min="0" required></label>
+      <button type="submit">Kirim Permintaan</button>
+    </form>
+    <div id="msg"></div>
+    <a href="index.html">Kembali ke Menu</a>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -15,11 +15,25 @@
   <div id="menuSection" style="display:none;">
     <h2>Menu</h2>
     <ul>
-      <li><a href="form.html">Pengisian Form Permintaan Logistik</a></li>
-      <li><a href="list.html">Daftar Permintaan Logistik</a></li>
-      <li><button onclick="logout()">Logout</button></li>
+      <li><a href="form.html"><span class="icon-menu"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="4" fill="#007aff"/><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">F</text></svg></span> Form Permintaan</a></li>
+      <li><a href="list.html"><span class="icon-menu"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#007aff"/><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">L</text></svg></span> Daftar Permintaan</a></li>
+      <li><button onclick="logout()"><span class="icon-menu"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="6" fill="#007aff"/><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff">⎋</text></svg></span> Logout</button></li>
     </ul>
   </div>
+  <nav class="ios-tabbar">
+    <a href="index.html" class="tab-icon active">
+      <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 12l8-8 8 8" stroke="#007aff" stroke-width="2" fill="none"/><rect x="6" y="12" width="12" height="8" rx="2" fill="#007aff" opacity="0.15"/></svg>
+      <span>Menu</span>
+    </a>
+    <a href="form.html" class="tab-icon">
+      <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 12h8M12 8v8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
+      <span>Form</span>
+    </a>
+    <a href="list.html" class="tab-icon">
+      <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 8h8M8 12h8M8 16h8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
+      <span>List</span>
+    </a>
+  </nav>
   <script src="script.js"></script>
 </body>
 </html>

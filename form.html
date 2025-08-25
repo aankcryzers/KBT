@@ -2,13 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Form Permintaan Barang</title>
+  <title>Form Permintaan Logistik</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Form Permintaan Barang</h1>
-  <!-- ...form permintaan sesuai kebutuhan... -->
+  <h1>Form Permintaan Logistik</h1>
+  <div class="form-card">
+    <!-- Form isi di sini -->
+    <form id="mrForm">
+      <!-- Isi form sesuai aplikasi -->
+      <label>Nama Barang <input type="text" name="barang" required></label>
+      <!-- dst ... -->
+      <button type="submit">Kirim</button>
+    </form>
+    <div id="formMsg"></div>
+  </div>
   <nav class="simple-nav">
     <a href="index.html" class="nav-btn">Menu</a>
     <span class="nav-spacer"></span>
@@ -17,19 +26,27 @@
     <button id="authBtn" class="nav-btn"></button>
   </nav>
   <script>
+    // Batasi akses jika user bukan login
+    window.onload = function() {
+      const uname = localStorage.getItem('user');
+      const role = localStorage.getItem('role');
+      if (!uname || !role) {
+        window.location.href = "login.html";
+      }
+      if (role !== "formonly" && role !== "admin") {
+        document.getElementById('formMsg').textContent = "Anda tidak memiliki akses ke halaman ini.";
+        document.getElementById('mrForm').style.display = "none";
+      }
+    };
     function goBack() { window.history.back(); }
     function updateAuthBtn() {
       const btn = document.getElementById('authBtn');
       if (localStorage.getItem('user')) {
         btn.textContent = "Logout";
-        btn.onclick = () => { localStorage.removeItem('user'); location.reload(); };
+        btn.onclick = () => { localStorage.clear(); location.href = "login.html"; };
       } else {
         btn.textContent = "Login";
-        btn.onclick = () => {
-          const name = prompt("Masukkan Nama Pemohon:");
-          if(name) localStorage.setItem('user', name);
-          location.reload();
-        };
+        btn.onclick = () => { location.href = "login.html"; };
       }
     }
     updateAuthBtn();

@@ -1,119 +1,107 @@
-/* iOS/Apple-inspired design for KBT Logistik Web App - Responsive */
-
-/* Base font, background, and minimum height for tabbar space */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   margin: 0;
   background: #f2f2f7;
   color: #1c1c1e;
   min-height: 100vh;
-  padding-bottom: 68px; /* space for tabbar */
+  padding-bottom: 78px;
 }
 
-/* Headings */
-h1, h2 {
+h1 {
   color: #007aff;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
   margin-top: 32px;
-  margin-bottom: 18px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
-h2 {
-  font-size: 1.3em;
+/* Card grid menu */
+.menu-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto 38px auto;
+  padding: 0 18px;
 }
 
-/* Card containers (form, login, menu, etc.) */
-form,
-#loginSection,
-#loginSectionForm,
-#loginSectionList,
-#menuSection {
+.menu-card {
   background: #fff;
-  padding: 28px 20px 18px 20px;
   border-radius: 18px;
-  box-shadow: 0 8px 24px 0 rgba(60,60,67,0.12), 0 2px 6px 0 rgba(60,60,67,0.08);
-  margin: 36px auto 24px auto;
-  max-width: 430px;
-}
-
-/* Labels and form controls */
-label {
-  display: block;
-  margin: 20px 0 6px 0;
-  font-size: 15px;
-  color: #3a3a3c;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid #d1d1d6;
-  border-radius: 13px;
-  margin-top: 3px;
-  font-size: 16px;
-  background: #f9f9fb;
-  transition: border-color 0.2s;
-  box-sizing: border-box;
-}
-
-input:focus, select:focus {
-  border-color: #007aff;
-  outline: none;
-}
-
-/* Button styles */
-button[type="submit"], button {
-  background: #007aff;
-  color: #fff;
-  border: none;
-  padding: 12px 0;
-  border-radius: 13px;
-  font-size: 17px;
-  font-weight: 600;
-  box-shadow: 0 2px 6px 0 rgba(60,60,67,0.08);
-  width: 100%;
-  margin: 20px 0 0 0;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button[type="submit"]:hover, button:hover {
-  background: #005ecb;
-}
-
-button:active {
-  background: #0051a8;
-}
-
-/* Table styles */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px 0 rgba(60,60,67,0.10);
-  margin-bottom: 28px;
+  box-shadow: 0 4px 16px 0 rgba(60,60,67,0.11), 0 1.5px 4px 0 rgba(60,60,67,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 10px 18px 10px;
+  text-decoration: none;
+  transition: box-shadow 0.18s, transform 0.18s;
+  position: relative;
   overflow: hidden;
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
-th, td {
-  border-bottom: 1.5px solid #ececec;
-  padding: 16px 8px;
-  text-align: left;
-  font-size: 16px;
+.menu-card:hover, .menu-card:focus {
+  box-shadow: 0 8px 24px 0 rgba(60,60,67,0.18), 0 2px 8px 0 rgba(60,60,67,0.13);
+  transform: translateY(-3px) scale(1.03);
+  border: 1px solid #007aff20;
 }
 
-tbody tr:last-child td {
-  border-bottom: none;
+.icon-card {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: background 0.13s;
+  background: #f5f5fa;
+  box-shadow: 0 2px 8px rgba(60,60,67,0.08);
+}
+.icon-card.logistik { background: #e7f1ff; }
+.icon-card.finance { background: #e7faeb; }
+.icon-card.produksi { background: #fff6e9; }
+.icon-card.hse     { background: #f4e5ff; }
+.icon-card.other   { background: #f0f1f7; }
+
+.menu-title {
+  font-size: 1.12em;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 0.01em;
 }
 
-thead {
-  background: #f2f2f7;
-  color: #007aff;
-  font-size: 16px;
+@media (max-width: 700px) {
+  .menu-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 98vw;
+    padding: 0 4px;
+  }
+  .menu-card {
+    padding: 28px 6px 14px 6px;
+  }
+  .icon-card {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 11px;
+  }
+  .menu-title {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 430px) {
+  .menu-card-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 1vw;
+  }
+  .menu-card {
+    padding: 22px 2px 10px 2px;
+  }
 }
 
 /* iOS tab bar styles */
@@ -155,129 +143,19 @@ thead {
   color: #007aff;
 }
 
-.icon-menu {
-  vertical-align: middle;
-  margin-right: 6px;
-}
-
-/* Link styles */
-a {
-  color: #007aff;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-  font-size: 16px;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #005ecb;
-  text-decoration: underline;
-}
-
-/* List styles for menu */
-ul {
-  padding-left: 0;
-  margin: 0;
-}
-
-li {
-  list-style: none;
-  margin: 18px 0;
-}
-
-/* Message and error style */
-#msg, #loginMsg, #loginMsgForm, #loginMsgList {
-  color: #e53e3e;
-  margin-top: 10px;
-  font-size: 15px;
-  min-height: 22px;
-  text-align: center;
-}
-
-/* Placeholder color */
-::-webkit-input-placeholder { color: #b2b2b2; }
-::-moz-placeholder { color: #b2b2b2; }
-:-ms-input-placeholder { color: #b2b2b2; }
-::placeholder { color: #b2b2b2; }
-
-/* Responsive for mobile and tablet */
-@media (max-width: 900px) {
-  form,
-  #loginSection,
-  #loginSectionForm,
-  #loginSectionList,
-  #menuSection {
-    margin: 18px 6px 18px 6px;
-    padding: 18px 7px 12px 7px;
-    max-width: 98vw;
-  }
-  h1, h2 {
-    margin-top: 18px;
-    font-size: 1.18em;
-  }
-  table {
-    font-size: 14px;
-  }
-  th, td {
-    padding: 11px 4px;
-  }
-  .ios-tabbar {
-    height: 55px;
-  }
-  /* Make tabbar easier to tap on small screens */
-  .tab-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-/* Extra responsive for small mobile screens */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-  h1, h2 {
-    font-size: 1em;
-  }
-  form,
-  #loginSection,
-  #loginSectionForm,
-  #loginSectionList,
-  #menuSection {
-    padding: 10px 2px 8px 2px;
-    margin: 9px 2px 10px 2px;
-  }
-  table {
-    font-size: 12px;
-  }
-  th, td {
-    padding: 8px 2px;
-  }
-  .ios-tabbar {
-    height: 48px;
-  }
-  .tab-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-  .tab-icon span {
-    font-size: 11px;
-  }
-}
-
-/* Make table horizontally scrollable on small screens */
-@media (max-width: 700px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
-
 /* Hide scroll on tabbar for mobile */
 .ios-tabbar {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
+}
+
+/* Responsive for tab bar */
+@media (max-width: 900px) {
+  .ios-tabbar { height: 55px; }
+  .tab-icon svg { width: 22px; height: 22px; }
+}
+@media (max-width: 430px) {
+  .ios-tabbar { height: 46px; }
+  .tab-icon svg { width: 18px; height: 18px; }
+  .tab-icon span { font-size: 11px; }
 }

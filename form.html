@@ -11,10 +11,25 @@
   <div class="form-card">
     <!-- Form isi di sini -->
     <form id="mrForm">
-      <!-- Isi form sesuai aplikasi -->
-      <label>Nama Barang <input type="text" name="barang" required></label>
-      <!-- dst ... -->
-      <button type="submit">Kirim</button>
+      <label>No MR: <input type="text" name="mr_no" id="mr_no" readonly></label>
+      <label>Nama Pemohon: <input type="text" name="pemohon" id="pemohon" readonly></label>
+      <label>Department: <input type="text" name="department" required></label>
+      <label>Tanggal Pengajuan: <input type="text" name="tanggal" id="tanggal" readonly></label>
+      <label>Nama Barang: <input type="text" name="barang" required></label>
+      <label>Part No: <input type="text" name="part_no"></label>
+      <label>Satuan:
+        <select name="satuan" required>
+          <option value="">--Pilih--</option>
+          <option value="pcs">pcs</option>
+          <option value="box">box</option>
+          <option value="liter">liter</option>
+          <option value="unit">unit</option>
+          <option value="meter">meter</option>
+        </select>
+      </label>
+      <label>Qty: <input type="number" name="qty" min="1" required></label>
+      <label>Estimasi Harga: <input type="number" name="harga" min="0" required></label>
+      <button type="submit">Kirim Permintaan</button>
     </form>
     <div id="formMsg"></div>
   </div>

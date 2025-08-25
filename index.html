@@ -9,55 +9,61 @@
 <body>
   <h1>Selamat Datang di KBT Apps</h1>
   <div class="menu-card-grid">
-    <a class="menu-card" href="form.html">
+    <a class="menu-card" href="logistik-menu.html">
       <div class="icon-card logistik">
-        <!-- Box SVG (Logistik) -->
         <svg viewBox="0 0 32 32" width="38" height="38"><rect x="6" y="8" width="20" height="16" rx="4" fill="#007aff"/><rect x="10" y="12" width="12" height="8" rx="2" fill="#fff" opacity="0.7"/></svg>
       </div>
       <span class="menu-title">Logistik</span>
     </a>
     <a class="menu-card" href="#">
       <div class="icon-card finance">
-        <!-- Wallet SVG (Finance) -->
         <svg viewBox="0 0 32 32" width="38" height="38"><rect x="4" y="10" width="24" height="12" rx="6" fill="#34c759"/><rect x="8" y="14" width="16" height="4" rx="2" fill="#fff" opacity="0.7"/></svg>
       </div>
       <span class="menu-title">Finance</span>
     </a>
     <a class="menu-card" href="#">
       <div class="icon-card produksi">
-        <!-- Gear SVG (Produksi) -->
         <svg viewBox="0 0 32 32" width="38" height="38"><circle cx="16" cy="16" r="9" fill="#ff9500"/><circle cx="16" cy="16" r="5" fill="#fff" opacity="0.7"/></svg>
       </div>
       <span class="menu-title">Produksi</span>
     </a>
     <a class="menu-card" href="#">
       <div class="icon-card hse">
-        <!-- Shield SVG (HSE) -->
         <svg viewBox="0 0 32 32" width="38" height="38"><path d="M16 5 L26 10 V18 Q16 27 6 18 V10 Z" fill="#af52de"/><circle cx="16" cy="14" r="5" fill="#fff" opacity="0.7"/></svg>
       </div>
       <span class="menu-title">HSE</span>
     </a>
     <a class="menu-card" href="#">
       <div class="icon-card other">
-        <!-- Dots SVG (Other) -->
         <svg viewBox="0 0 32 32" width="38" height="38"><circle cx="8" cy="16" r="4" fill="#007aff"/><circle cx="16" cy="16" r="4" fill="#34c759"/><circle cx="24" cy="16" r="4" fill="#ff9500"/></svg>
       </div>
       <span class="menu-title">Menu Lain</span>
     </a>
   </div>
-  <nav class="ios-tabbar">
-    <a href="index.html" class="tab-icon active">
-      <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 12l8-8 8 8" stroke="#007aff" stroke-width="2" fill="none"/><rect x="6" y="12" width="12" height="8" rx="2" fill="#007aff" opacity="0.15"/></svg>
-      <span>Menu</span>
-    </a>
-    <a href="form.html" class="tab-icon">
-      <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 12h8M12 8v8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
-      <span>Form</span>
-    </a>
-    <a href="list.html" class="tab-icon">
-      <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 8h8M8 12h8M8 16h8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
-      <span>List</span>
-    </a>
+  <nav class="simple-nav">
+    <a href="index.html" class="nav-btn active">Menu</a>
+    <span class="nav-spacer"></span>
+    <button onclick="goBack()" class="nav-btn">Kembali</button>
+    <span class="nav-spacer"></span>
+    <button id="authBtn" class="nav-btn"></button>
   </nav>
+  <script>
+    function goBack() { window.history.back(); }
+    function updateAuthBtn() {
+      const btn = document.getElementById('authBtn');
+      if (localStorage.getItem('user')) {
+        btn.textContent = "Logout";
+        btn.onclick = () => { localStorage.removeItem('user'); location.reload(); };
+      } else {
+        btn.textContent = "Login";
+        btn.onclick = () => {
+          const name = prompt("Masukkan Nama Pemohon:");
+          if(name) localStorage.setItem('user', name);
+          location.reload();
+        };
+      }
+    }
+    updateAuthBtn();
+  </script>
 </body>
 </html>

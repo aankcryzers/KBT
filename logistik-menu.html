@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Logistik - Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Menu Logistik</h1>
+  <div class="menu-card-grid">
+    <a class="menu-card" href="form.html">
+      <div class="icon-card logistik">
+        <svg viewBox="0 0 32 32" width="38" height="38"><rect x="6" y="8" width="20" height="16" rx="4" fill="#007aff"/><rect x="10" y="12" width="12" height="8" rx="2" fill="#fff" opacity="0.7"/></svg>
+      </div>
+      <span class="menu-title">Form Permintaan</span>
+    </a>
+    <a class="menu-card" href="list.html">
+      <div class="icon-card logistik">
+        <svg viewBox="0 0 32 32" width="38" height="38"><rect x="6" y="8" width="20" height="16" rx="4" fill="#007aff"/><rect x="10" y="12" width="12" height="8" rx="2" fill="#fff" opacity="0.7"/></svg>
+      </div>
+      <span class="menu-title">Daftar Permintaan</span>
+    </a>
+  </div>
+  <nav class="simple-nav">
+    <a href="index.html" class="nav-btn">Menu</a>
+    <span class="nav-spacer"></span>
+    <button onclick="goBack()" class="nav-btn">Kembali</button>
+    <span class="nav-spacer"></span>
+    <button id="authBtn" class="nav-btn"></button>
+  </nav>
+  <script>
+    function goBack() { window.history.back(); }
+    function updateAuthBtn() {
+      const btn = document.getElementById('authBtn');
+      if (localStorage.getItem('user')) {
+        btn.textContent = "Logout";
+        btn.onclick = () => { localStorage.removeItem('user'); location.reload(); };
+      } else {
+        btn.textContent = "Login";
+        btn.onclick = () => {
+          const name = prompt("Masukkan Nama Pemohon:");
+          if(name) localStorage.setItem('user', name);
+          location.reload();
+        };
+      }
+    }
+    updateAuthBtn();
+  </script>
+</body>
+</html>

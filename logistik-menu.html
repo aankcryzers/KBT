@@ -30,19 +30,26 @@
     <button id="authBtn" class="nav-btn"></button>
   </nav>
   <script>
+    window.onload = function() {
+      const uname = localStorage.getItem('user');
+      const role = localStorage.getItem('role');
+      if (!uname || !role) {
+        window.location.href = "login.html";
+      }
+      // Jika user role formonly, redirect ke form.html
+      if (role === "formonly") {
+        window.location.href = "form.html";
+      }
+    };
     function goBack() { window.history.back(); }
     function updateAuthBtn() {
       const btn = document.getElementById('authBtn');
       if (localStorage.getItem('user')) {
         btn.textContent = "Logout";
-        btn.onclick = () => { localStorage.removeItem('user'); location.reload(); };
+        btn.onclick = () => { localStorage.clear(); location.href = "login.html"; };
       } else {
         btn.textContent = "Login";
-        btn.onclick = () => {
-          const name = prompt("Masukkan Nama Pemohon:");
-          if(name) localStorage.setItem('user', name);
-          location.reload();
-        };
+        btn.onclick = () => { location.href = "login.html"; };
       }
     }
     updateAuthBtn();

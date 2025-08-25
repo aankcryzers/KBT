@@ -130,17 +130,18 @@ async function loadMRList() {
     data.forEach((mr, idx) => {
       const canEdit = mr.pemohon === user;
       const row = `<tr>
-        <td>${mr.mr_no}</td>
-        <td>${mr.pemohon}</td>
-        <td>${mr.department}</td>
-        <td>${mr.tanggal}</td>
-        <td>${mr.barang}</td>
-        <td>${mr.part_no || ''}</td>
-        <td>${mr.satuan}</td>
-        <td>${mr.qty}</td>
-        <td>${mr.harga}</td>
-        <td>${canEdit ? `<button onclick="editMR(${idx})">Edit</button>` : ''}</td>
-      </tr>`;
+  <td>${mr.mr_no}</td>
+  <td>${mr.pemohon}</td>
+  <td>${mr.department}</td>
+  <td>${mr.tanggal}</td>
+  <td>${mr.barang}</td>
+  <td>${mr.part_no || ''}</td>
+  <td>${mr.satuan}</td>
+  <td>${mr.qty}</td>
+  <td>${mr.harga}</td>
+  <td>${mr.total_harga}</td>
+  <td>${canEdit ? `<button onclick="editMR(${idx})">Edit</button>` : ''}</td>
+</tr>`;
       tbody.innerHTML += row;
     });
   } catch {

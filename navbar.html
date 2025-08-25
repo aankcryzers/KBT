@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <a href="index.html" class="nav-btn active">Menu</a>
+  <span class="nav-spacer"></span>
+  <button onclick="goBack()" class="nav-btn">Kembali</button>
+  <span class="nav-spacer"></span>
+  <button id="authBtn" class="nav-btn"></button>
+</nav>
+<script>
+  function goBack() { window.history.back(); }
+  function updateAuthBtn() {
+    const btn = document.getElementById('authBtn');
+    if (localStorage.getItem('user')) {
+      btn.textContent = "Logout";
+      btn.onclick = () => { localStorage.clear(); location.href = "login.html"; };
+    } else {
+      btn.textContent = "Login";
+      btn.onclick = () => { location.href = "login.html"; };
+    }
+  }
+  updateAuthBtn();
+</script>

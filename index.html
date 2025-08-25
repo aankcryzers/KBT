@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KBT Logistik</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Aplikasi Logistik KBT</h1>
+  <div id="loginSection">
+    <input type="text" id="loginUser" placeholder="Masukkan Nama Pemohon">
+    <button onclick="login()">Login</button>
+    <div id="loginMsg"></div>
+  </div>
+  <div id="menuSection" style="display:none;">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="form.html">Pengisian Form Permintaan Logistik</a></li>
+      <li><a href="list.html">Daftar Permintaan Logistik</a></li>
+      <li><button onclick="logout()">Logout</button></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

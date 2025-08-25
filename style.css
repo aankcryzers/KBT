@@ -1,30 +1,47 @@
+/* iOS/Apple-inspired design for KBT Logistik Web App */
+
+/* Base iOS font and background */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   margin: 0;
   background: #f2f2f7;
   color: #1c1c1e;
+  min-height: 100vh;
+  padding-bottom: 68px; /* space for tabbar */
 }
 
+/* Headings */
 h1, h2 {
   color: #007aff;
   font-weight: 600;
   letter-spacing: 0.01em;
-  margin-top: 30px;
-  margin-bottom: 16px;
+  margin-top: 32px;
+  margin-bottom: 18px;
+  text-align: center;
 }
 
-form, #loginSection, #loginSectionForm, #loginSectionList, #menuSection {
+h2 {
+  font-size: 1.3em;
+}
+
+/* Card containers (form, login, menu, etc.) */
+form,
+#loginSection,
+#loginSectionForm,
+#loginSectionList,
+#menuSection {
   background: #fff;
-  padding: 24px 20px;
+  padding: 28px 20px 18px 20px;
   border-radius: 18px;
-  box-shadow: 0 6px 24px 0 rgba(60,60,67,0.15), 0 1.5px 4px 0 rgba(60,60,67,0.10);
-  margin: 32px auto 24px auto;
-  max-width: 420px;
+  box-shadow: 0 8px 24px 0 rgba(60,60,67,0.12), 0 2px 6px 0 rgba(60,60,67,0.08);
+  margin: 36px auto 24px auto;
+  max-width: 430px;
 }
 
+/* Labels and form controls */
 label {
   display: block;
-  margin: 18px 0 6px 0;
+  margin: 20px 0 6px 0;
   font-size: 15px;
   color: #3a3a3c;
 }
@@ -33,7 +50,7 @@ input, select {
   width: 100%;
   padding: 12px 14px;
   border: 1.5px solid #d1d1d6;
-  border-radius: 12px;
+  border-radius: 13px;
   margin-top: 3px;
   font-size: 16px;
   background: #f9f9fb;
@@ -46,17 +63,18 @@ input:focus, select:focus {
   outline: none;
 }
 
+/* Button styles */
 button[type="submit"], button {
   background: #007aff;
   color: #fff;
   border: none;
   padding: 12px 0;
-  border-radius: 12px;
+  border-radius: 13px;
   font-size: 17px;
   font-weight: 600;
   box-shadow: 0 2px 6px 0 rgba(60,60,67,0.08);
   width: 100%;
-  margin-top: 18px;
+  margin: 20px 0 0 0;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -65,6 +83,11 @@ button[type="submit"]:hover, button:hover {
   background: #005ecb;
 }
 
+button:active {
+  background: #0051a8;
+}
+
+/* Table styles */
 table {
   width: 100%;
   border-collapse: separate;
@@ -72,13 +95,13 @@ table {
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 4px 18px 0 rgba(60,60,67,0.10);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   overflow: hidden;
 }
 
 th, td {
   border-bottom: 1.5px solid #ececec;
-  padding: 14px 8px;
+  padding: 16px 8px;
   text-align: left;
   font-size: 16px;
 }
@@ -93,45 +116,7 @@ thead {
   font-size: 16px;
 }
 
-a {
-  color: #007aff;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-  font-size: 16px;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #005ecb;
-  text-decoration: underline;
-}
-
-ul {
-  padding-left: 0;
-  margin: 0;
-}
-
-li {
-  list-style: none;
-  margin: 18px 0;
-}
-
-#msg, #loginMsg, #loginMsgForm, #loginMsgList {
-  color: #e53e3e;
-  margin-top: 8px;
-  font-size: 15px;
-  min-height: 20px;
-}
-
-::-webkit-input-placeholder { color: #b2b2b2; }
-::-moz-placeholder { color: #b2b2b2; }
-:-ms-input-placeholder { color: #b2b2b2; }
-::placeholder { color: #b2b2b2; }
-
-/* ...css sebelumnya tetap... */
-
-/* iOS style tab bar */
+/* iOS tab bar styles */
 .ios-tabbar {
   position: fixed;
   left: 0;
@@ -170,7 +155,81 @@ li {
   color: #007aff;
 }
 
+/* Icon in menu list */
 .icon-menu {
   vertical-align: middle;
   margin-right: 6px;
+}
+
+/* Link styles */
+a {
+  color: #007aff;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #005ecb;
+  text-decoration: underline;
+}
+
+/* List styles for menu */
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  margin: 18px 0;
+}
+
+/* Message and error style */
+#msg, #loginMsg, #loginMsgForm, #loginMsgList {
+  color: #e53e3e;
+  margin-top: 10px;
+  font-size: 15px;
+  min-height: 22px;
+  text-align: center;
+}
+
+/* Placeholder color */
+::-webkit-input-placeholder { color: #b2b2b2; }
+::-moz-placeholder { color: #b2b2b2; }
+:-ms-input-placeholder { color: #b2b2b2; }
+::placeholder { color: #b2b2b2; }
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  form,
+  #loginSection,
+  #loginSectionForm,
+  #loginSectionList,
+  #menuSection {
+    margin: 18px 6px 18px 6px;
+    padding: 18px 7px 12px 7px;
+    max-width: 98vw;
+  }
+  h1, h2 {
+    margin-top: 18px;
+    font-size: 1.2em;
+  }
+  table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 11px 4px;
+  }
+  .ios-tabbar {
+    height: 55px;
+  }
+}
+
+/* Hide scroll on tabbar for mobile */
+.ios-tabbar {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
 }

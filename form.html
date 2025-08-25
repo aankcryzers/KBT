@@ -2,56 +2,37 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Form Permintaan Logistik KBT</title>
+  <title>Form Permintaan Barang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
-  <nav class="ios-tabbar">
-  <a href="index.html" class="tab-icon">
-    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 12l8-8 8 8" stroke="#007aff" stroke-width="2" fill="none"/><rect x="6" y="12" width="12" height="8" rx="2" fill="#007aff" opacity="0.15"/></svg>
-    <span>Menu</span>
-  </a>
-  <a href="form.html" class="tab-icon active">
-    <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 12h8M12 8v8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
-    <span>Form</span>
-  </a>
-  <a href="list.html" class="tab-icon">
-    <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="4" fill="#007aff" opacity="0.15"/><path d="M8 8h8M8 12h8M8 16h8" stroke="#007aff" stroke-width="2" fill="none"/></svg>
-    <span>List</span>
-  </a>
-</nav>
 <body>
-  <h1>Form Permintaan Logistik KBT</h1>
-  <div id="loginSectionForm">
-    <input type="text" id="loginUserForm" placeholder="Masukkan Nama Pemohon">
-    <button onclick="loginForm()">Login</button>
-    <div id="loginMsgForm"></div>
-  </div>
-  <div id="formSection" style="display:none;">
-    <form id="mrForm">
-      <label>No MR: <input type="text" name="mr_no" id="mr_no" readonly></label>
-      <label>Nama Pemohon: <input type="text" name="pemohon" id="pemohon" readonly></label>
-      <label>Department: <input type="text" name="department" required></label>
-      <label>Tanggal Pengajuan: <input type="text" name="tanggal" id="tanggal" readonly></label>
-      <label>Nama Barang: <input type="text" name="barang" required></label>
-      <label>Part No: <input type="text" name="part_no"></label>
-      <label>Satuan:
-        <select name="satuan" required>
-          <option value="">--Pilih--</option>
-          <option value="pcs">pcs</option>
-          <option value="box">box</option>
-          <option value="liter">liter</option>
-          <option value="unit">unit</option>
-          <option value="meter">meter</option>
-        </select>
-      </label>
-      <label>Estimasi Harga Satuan (Rp): <input type="number" name="harga" id="harga" min="0" required></label>
-  <label>Qty: <input type="number" name="qty" id="qty" min="1" required></label>
-  <label>Total Estimasi Harga (Rp): <input type="number" name="total_harga" id="total_harga" readonly></label>
-      <button type="submit">Kirim Permintaan</button>
-    </form>
-    <div id="msg"></div>
-    <a href="index.html">Kembali ke Menu</a>
-  </div>
-  <script src="script.js"></script>
+  <h1>Form Permintaan Barang</h1>
+  <!-- ...form permintaan sesuai kebutuhan... -->
+  <nav class="simple-nav">
+    <a href="index.html" class="nav-btn">Menu</a>
+    <span class="nav-spacer"></span>
+    <button onclick="goBack()" class="nav-btn">Kembali</button>
+    <span class="nav-spacer"></span>
+    <button id="authBtn" class="nav-btn"></button>
+  </nav>
+  <script>
+    function goBack() { window.history.back(); }
+    function updateAuthBtn() {
+      const btn = document.getElementById('authBtn');
+      if (localStorage.getItem('user')) {
+        btn.textContent = "Logout";
+        btn.onclick = () => { localStorage.removeItem('user'); location.reload(); };
+      } else {
+        btn.textContent = "Login";
+        btn.onclick = () => {
+          const name = prompt("Masukkan Nama Pemohon:");
+          if(name) localStorage.setItem('user', name);
+          location.reload();
+        };
+      }
+    }
+    updateAuthBtn();
+  </script>
 </body>
 </html>

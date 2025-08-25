@@ -151,3 +151,55 @@ function editMR(idx) {
   alert("Fitur edit: hanya bisa oleh pemohon. Anda memilih MR urutan #" + (idx+1));
   // Bisa dikembangkan: load data, tampilkan form edit, dsb.
 }
+
+function updateTotalHarga() {
+  const qty = Number(document.getElementById('qty').value) || 0;
+  const harga = Number(document.getElementById('harga').value) || 0;
+  document.getElementById('total_harga').value = qty * harga;
+}
+if (document.getElementById('qty')) {
+  document.getElementById('qty').addEventListener('input', updateTotalHarga);
+}
+if (document.getElementById('harga')) {
+  document.getElementById('harga').addEventListener('input', updateTotalHarga);
+}
+
+// Saat submit, kirim total_harga juga
+if (document.getElementById('mrForm')) {
+  document.getElementById('mrForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const user = localStorage.getItem('user');
+    if (!user) {
+      document.getElementById('msg').textContent = "Anda harus login dahulu!";
+      return;
+    }
+    const form = e.target;
+    const data = {
+      mr_no: form.mr_no.value,
+      pemohon: user,
+      department: form.department.value,
+      tanggal: form.tanggal.value,
+      barang: form.barang.value,
+      part_no: form.part_no.value,
+      satuan: form.satuan.value,
+      qty: form.qty.value,
+      harga: form.harga.value,
+      total_harga: form.total_harga.value
+    };
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      document.getElementById('msg').textContent = result.message || 'Permintaan berhasil dikirim!';
+      form.reset();
+      setNoMR();
+      setTanggal();
+      updateTotalHarga();
+    } catch (err) {
+      document.getElementById('msg').textContent = 'Gagal kirim permintaan!';
+    }
+  });
+}

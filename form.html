@@ -31,7 +31,9 @@
         </select>
       </label>
       <label>Qty: <input type="number" name="qty" min="1" required></label>
-      <label>Estimasi Harga: <input type="number" name="harga" min="0" required></label>
+      <label>Estimasi Harga Satuan (Rp): <input type="number" name="harga" id="harga" min="0" required></label>
+  <label>Qty: <input type="number" name="qty" id="qty" min="1" required></label>
+  <label>Total Estimasi Harga (Rp): <input type="number" name="total_harga" id="total_harga" readonly></label>
       <button type="submit">Kirim Permintaan</button>
     </form>
     <div id="msg"></div>

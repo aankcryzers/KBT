@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
+  <nav class="simple-nav">
+    <a href="index.html" class="nav-btn">Menu</a>
+    <span class="nav-spacer"></span>
+    <button onclick="goBack()" class="nav-btn">Kembali</button>
+    <span class="nav-spacer"></span>
+    <button id="authBtn" class="nav-btn"></button>
+  </nav>
 <body>
   <h1>Form Permintaan Logistik</h1>
   <div class="form-card">
@@ -35,13 +42,7 @@
 </form>
     <div id="formMsg"></div>
   </div>
-  <nav class="simple-nav">
-    <a href="index.html" class="nav-btn">Menu</a>
-    <span class="nav-spacer"></span>
-    <button onclick="goBack()" class="nav-btn">Kembali</button>
-    <span class="nav-spacer"></span>
-    <button id="authBtn" class="nav-btn"></button>
-  </nav>
+  
   <script>
     // Batasi akses jika user bukan login
     window.onload = function() {

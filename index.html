@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
+   </div>
+  <nav class="simple-nav">
+    <a href="index.html" class="nav-btn active">Menu</a>
+    <span class="nav-spacer"></span>
+    <button onclick="goBack()" class="nav-btn">Kembali</button>
+    <span class="nav-spacer"></span>
+    <button id="authBtn" class="nav-btn"></button>
+  </nav>
 <body>
   <h1>Selamat Datang di KBT Apps</h1>
   <div class="menu-card-grid">
@@ -60,14 +68,7 @@
   <span class="menu-title">Menu Lain</span>
 </a>
     <!-- Card lainnya ... -->
-  </div>
-  <nav class="simple-nav">
-    <a href="index.html" class="nav-btn active">Menu</a>
-    <span class="nav-spacer"></span>
-    <button onclick="goBack()" class="nav-btn">Kembali</button>
-    <span class="nav-spacer"></span>
-    <button id="authBtn" class="nav-btn"></button>
-  </nav>
+ 
   <script>
     // Batasi akses, user hanya bisa ke form
     window.onload = function() {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - KBT Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Login KBT Apps</h1>
+  <div class="login-card">
+    <form id="loginForm">
+      <label>Username
+        <input type="text" id="username" name="username" required autocomplete="username" maxlength="32" placeholder="Masukkan username">
+      </label>
+      <label>Password
+        <input type="password" id="password" name="password" required autocomplete="current-password" maxlength="32" placeholder="Masukkan password">
+      </label>
+      <button type="submit">Login</button>
+      <div id="loginMsg"></div>
+    </form>
+  </div>
+  <script>
+    // Simulasi user (bisa diganti dengan database/backend)
+    // Untuk demo: user/user123 hanya bisa akses form, admin/admin123 akses penuh
+    const users = [
+      { username: "user", password: "user123", role: "formonly" },
+      { username: "admin", password: "admin123", role: "admin" }
+      // Tambah user lain di sini jika perlu
+    ];
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const uname = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const found = users.find(u => u.username === uname && u.password === pass);
+      if (found) {
+        localStorage.setItem('user', uname);
+        localStorage.setItem('role', found.role);
+        document.getElementById('loginMsg').textContent = '';
+        if (found.role === 'formonly') {
+          window.location.href = "form.html";
+        } else {
+          window.location.href = "index.html";
+        }
+      } else {
+        document.getElementById('loginMsg').textContent = "Username atau password salah.";
+      }
+    });
+
+    // Jika sudah login, redirect sesuai hak akses
+    window.onload = function() {
+      const uname = localStorage.getItem('user');
+      const role = localStorage.getItem('role');
+      if (uname && role) {
+        if (role === 'formonly') {
+          window.location.href = "form.html";
+        } else {
+          window.location.href = "index.html";
+        }
+      }
+    };
+  </script>
+</body>
+</html>

@@ -128,3 +128,49 @@ li {
 ::-moz-placeholder { color: #b2b2b2; }
 :-ms-input-placeholder { color: #b2b2b2; }
 ::placeholder { color: #b2b2b2; }
+
+/* ...css sebelumnya tetap... */
+
+/* iOS style tab bar */
+.ios-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1.5px solid #ececec;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 62px;
+  z-index: 999;
+  box-shadow: 0 -2px 8px rgba(60,60,67,0.08);
+}
+
+.tab-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #b2b2b2;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  height: 100%;
+  padding-top: 3px;
+  transition: color 0.2s;
+}
+
+.tab-icon svg {
+  margin-bottom: 2px;
+}
+
+.tab-icon.active, .tab-icon:hover {
+  color: #007aff;
+}
+
+.icon-menu {
+  vertical-align: middle;
+  margin-right: 6px;
+}
